@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>IPL Auction</title>
+</head>
+
+<body>
+
+<h1>IPL Player Auction</h1>
+
+<table border="1">
+
+<tr>
+<th>Name</th>
+<th>Country</th>
+<th>Base Price</th>
+<th>Current Bid</th>
+<th>Bid</th>
+</tr>
+
+{% for player in players %}
+
+<tr>
+<td>{{player[1]}}</td>
+<td>{{player[2]}}</td>
+<td>{{player[3]}}</td>
+<td>{{player[4]}}</td>
+
+<td>
+
+<form action="/bid/{{player[0]}}" method="POST">
+
+<input type="number" name="bid" required>
+
+<button type="submit">Bid</button>
+
+</form>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+</html>
